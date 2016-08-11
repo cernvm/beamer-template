@@ -1,0 +1,418 @@
+% This and that
+%------------------
+\usepackage{etex} % use the etex engine, more variables etc.
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
+\usepackage{cmap}    % Correct encoding for Umlaute in pdf
+\usepackage[T1]{fontenc}    % Correct hyphenation for non-ASCII characters
+\usepackage[english,french]{babel}
+\usepackage{calc}
+\usepackage[left]{eurosym}
+\usepackage{thumbpdf}
+\usepackage{cite} % Order citations automatically (such as [1-4,5,8])
+\usepackage{multibib}
+\usepackage{array} % Extend array and tabular with column formatting
+\usepackage{hyperref}
+\hypersetup{final,
+	        plainpages=false,
+	        pdfpagelabels,
+	        pagebackref,
+	        %hyperfootnotes=false,
+	        colorlinks=true,
+	        linkcolor=blue,
+	        urlcolor=black,
+	        citecolor=blue,
+	        pdfpagemode=UseOutlines,
+	        pdfstartview=FitH,
+	        pdfborder={0 0 0}}
+\usepackage{url}
+\usepackage[per-mode=symbol,bracket-unit-denominator=false,detect-all,load-configurations=binary,binary-units]{siunitx}
+\DeclareSIUnit\loc{LOC}
+\DeclareSIUnit\permil{\textperthousand}
+\usepackage{pifont}  % Symbol characters
+\usepackage[weather]{ifsym}
+\usepackage{wasysym}
+
+\providecommand{\todo}[1]{{\Large TODO: #1}}
+\providecommand{\newterm}[1]{\emph{#1}}
+\providecommand{\indexed}[1]{\index{#1}#1}
+\providecommand{\product}[1]{{\scshape #1}\index{#1@\textsc{#1}}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\ie}{i.\,e.\ }
+\newcommand{\eg}{e.\,g.\ }
+\newcommand{\cf}{cf.\ }
+\newcommand{\dotfillbox}[1]{\makebox[#1]{\dotfill}}
+
+
+% Tables
+%-------------
+\usepackage{tabularx}
+% Split a cell into multiple rows/columns 
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{slashbox} % Diagonal cells
+\usepackage{booktabs}
+\usepackage{rotating}
+
+
+% Graphics
+%--------------
+\usepackage[all]{xy}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes,topaths,calc,fit,backgrounds,matrix,shadows,automata,patterns,decorations.pathmorphing,decorations.pathreplacing,decorations.text,circuits.logic.US,trees,mindmap,spy,lindenmayersystems}
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
+\usepackage{gnuplot-lua-tikz} % GNUplot plots
+\usepackage{chronology} % timeline
+\usepackage{fancybox}
+\newcommand{\MYhref}[3][black]{\href{#2}{\color{#1}{#3}}}  % Enforce black hyperlinks
+\definecolor{myyellow}{RGB}{242,226,149}
+
+
+% Math
+%--------
+\usepackage{amsmath,amssymb,amstext,amsthm,amsfonts}
+\usepackage{dsfont} %Font for nice set symbols (R, N, Z, ...)
+\usepackage{nicefrac} % "Marktfrauenbruch"
+% Set symbols
+\newcommand{\R}{\ensuremath{\mathds{R}}}
+\renewcommand{\P}{\ensuremath{\mathds{P}}}
+\newcommand{\N}{\ensuremath{\mathds{N}}}
+\newcommand{\Z}{\ensuremath{\mathds{Z}}}
+\newcommand{\Q}{\ensuremath{\mathds{Q}}}
+\newcommand{\F}{\ensuremath{\mathds{F}}}
+\newcommand{\C}{\ensuremath{\mathds{C}}}
+% Operators
+\providecommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\providecommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\providecommand{\floor}[1]{\left\lfloor #1 \right\rfloor}   
+\providecommand{\ceil}[1]{\left\lceil #1 \right\rceil}   
+\providecommand{\svert}{\; \vert \;} %Single vertical bar
+\DeclareMathOperator{\grad}{grad} % Gradient
+\DeclareMathOperator{\rot}{rot} % Rotation
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\deF}{def} 
+\DeclareMathOperator{\ran}{ran} 
+\DeclareMathOperator{\dist}{d}
+\DeclareMathOperator{\rx}{rx}
+\DeclareMathOperator{\tx}{tx} 
+\DeclareMathOperator{\req}{req}
+\DeclareMathOperator{\avg}{avg}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\identical}{id} 
+\providecommand{\id}{\ensuremath{\textsf{id}}}
+\DeclareMathOperator{\prob}{\mathbf{P}}
+\DeclareMathOperator{\E}{\mathbf{E}}
+\DeclareMathOperator{\percentile}{P}
+\DeclareMathOperator{\definedas}{\mathrel{\mathop:}=}
+\DeclareMathOperator{\asdefined}{\mathrel=:}
+% Arbitrarily long double arrows
+\makeatletter
+\def\Relbar{\mathrel{\smash=}}
+\def\Leftarrowfill@{\arrowfill@\Leftarrow\Relbar\Relbar}
+\def\Rightarrowfill@{\arrowfill@\Relbar\Relbar\Rightarrow}
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\newcommand{\xLeftarrow}[2][]{\ext@arrow 3095\Leftarrowfill@{#1}{#2}}
+\makeatother 
+
+
+% Computer Science
+%--------------------------
+\usepackage[ruled, vlined, algo2e]{algorithm2e}
+
+\usepackage[final]{listings}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=2, numbersep=5pt, frame=lines, basicstyle=\small, language=c}
+
+\usepackage{tikz-er2} % ER-Diagrams with TikZ
+\usepackage[underline=false,rounded corners=false]{pgf-umlsd} % UML diagrams with TikZ
+\usepackage{rail}
+\railalias{lbrace}{\{}
+\railalias{rbrace}{\}}
+\railalias{underscore}{\_}
+\railalias{dollar}{\$}
+\railalias{percent}{\%}
+\railalias{ampersand}{<>}
+\railalias{backslash}{\char"5C}
+\railalias{tilde}{$\sim$}
+\railalias{ampersand}{\&}
+\railalias{doubleampersand}{\&\&}
+\railalias{etc}{$\cdots$}
+\railalias{xorhat}{$\wedge$}
+\railterm{lbrace,rbrace,dollar,percent,ampersand,backslash,underscore,tilde,ampersand,doubleampersand,xorhat}
+\usepackage{qtree}
+\newcommand{\np}{\ensuremath{\mathcal{NP}}}
+\renewcommand{\O}{\ensuremath{\mathcal{O}}}
+
+
+% Typography
+%------------------
+\usepackage{microtype}
+\usepackage{slantsc} % Combine sc fonts with italic, bold, ...
+\clubpenalty = 9000 % No Schusterjungen
+\widowpenalty = 9000 \displaywidowpenalty = 9000 % No Hurenkinder
+% Roman numbers
+\newcommand{\romannum}[1]{
+	\ifnum#1<1 
+		\ifnum#1=0 
+			o
+		\else 
+			-\romannumeral -#1
+		\fi 
+	\else 
+		\romannumeral #1
+	\fi}
+\DeclareRobustCommand{\Romannum}[1]{\MakeUppercase{\romannum{#1}}}	
+
+
+% Sankey diagrams
+%------------------------
+\newif\ifsankeydebug
+
+\newenvironment{sankeydiagram}[1][]{
+
+  \def\sankeyflow##1##2{% sn, en
+    \path[sankey fill]
+    let
+    \p1=(##1.north east),\p2=(##1.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    \p3=(##2.north west),\p4=(##2.south west),
+    \n2={atan2(\x3-\x4,\y3-\y4)+90}
+    in
+    (\p1) to[out=\n1,in=\n2] (\p3) --
+    (\p4) to[in=\n1,out=\n2] (\p2) -- cycle;
+    \draw[sankey draw]
+    let
+    \p1=(##1.north east),\p2=(##1.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    \p3=(##2.north west),\p4=(##2.south west),
+    \n2={atan2(\x3-\x4,\y3-\y4)+90}
+    in
+    (\p1) to[out=\n1,in=\n2] (\p3)
+    (\p4) to[in=\n1,out=\n2] (\p2);
+  }
+
+
+  \tikzset{
+    sankey tot length/.store in=\sankeytotallen,
+    sankey tot quantity/.store in=\sankeytotalqty,
+    sankey min radius/.store in=\sankeyminradius,
+    sankey arrow length/.store in=\sankeyarrowlen,
+    sankey debug/.is if=sankeydebug,
+    sankey debug=false,
+    sankey flow/.style={
+      to path={
+        \pgfextra{
+          \pgfinterruptpath
+          \edef\sankeystart{\tikztostart}
+          \edef\sankeytarget{\tikztotarget}
+          \sankeyflow{\sankeystart}{\sankeytarget}
+          \endpgfinterruptpath
+        }
+      },
+    },
+    sankey node/.style={
+      inner sep=0,minimum height={sankeyqtytolen(##1)},
+      minimum width=0,draw=none,line width=0pt,
+    },
+    % sankey angle
+    sankey angle/.store in=\sankeyangle,
+    % sankey default styles
+    sankey fill/.style={line width=0pt,fill,white},
+    sankey draw/.style={draw=black,line width=.4pt},
+  }
+
+  \newcommand\sankeynode[4]{%prop,orientation,name,pos
+    \node[sankey node=##1,rotate=##2] (##3) at (##4) {};
+    \ifsankeydebug
+    \begin{pgfonlayer}{sankeydebug}
+      \draw[red,|-|] (##3.north west) -- (##3.south west);
+      \pgfmathsetmacro{\len}{sankeyqtytolen(##1)/3}
+      \draw[red] (##3.west)
+      -- ($(##3.west)!\len pt!90:(##3.south west)$)
+      node[font=\tiny,text=black] {##3};
+    \end{pgfonlayer}
+    \fi
+  }
+
+  \newcommand\sankeynodestart[4]{%prop,orientation,name,pos
+    \sankeynode{##1}{##2}{##3}{##4}
+    \begin{scope}[shift={(##3)},rotate=##2]
+      \path[sankey fill]
+      (##3.north west) -- ++(-\sankeyarrowlen,0)
+      -- ([xshift=-\sankeyarrowlen/6]##3.west)
+      -- ([xshift=-\sankeyarrowlen]##3.south west)
+      -- (##3.south west) -- cycle;
+      \path[sankey draw]
+      (##3.north west) -- ++(-\sankeyarrowlen,0)
+      -- ([xshift=-\sankeyarrowlen/6]##3.west)
+      -- ([xshift=-\sankeyarrowlen]##3.south west)
+      -- (##3.south west);
+    \end{scope}
+  }
+
+  \newcommand\sankeynodeend[4]{%prop,orientation,name,pos
+    \sankeynode{##1}{##2}{##3}{##4}
+    \begin{scope}[shift={(##3)},rotate=##2]
+      \path[sankey fill]
+      (##3.north east)
+      -- ([xshift=\sankeyarrowlen]##3.east)
+      -- (##3.south west) -- cycle;
+      \path[sankey draw]
+      (##3.north east)
+      -- ([xshift=\sankeyarrowlen]##3.east)
+      -- (##3.south west);
+    \end{scope}
+  }
+
+  \newcommand\sankeyadvance[3][]{%newname,name,distance
+    \edef\name{##2}
+    \ifstrempty{##1}{
+      \def\newname{##2}
+      \edef\name{##2-old}
+      \path [late options={name=##2,alias=\name}];
+    }{
+      \def\newname{##1}
+    }
+    \path
+    let
+    % sankey node angle
+    \p1=(##2.north east),
+    \p2=(##2.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    % sankey prop
+    \p3=($(\p1)-(\p2)$),
+    \n2={sankeylentoqty(veclen(\x3,\y3))},
+    % next position
+    \p4=($(##2.east)!##3!-90:(##2.north east)$)
+    in
+    \pgfextra{
+      \pgfmathsetmacro{\prop}{\n2}
+      \pgfinterruptpath
+      \sankeynode{\prop}{\n1}{\newname}{\p4}
+      \path (\name) to[sankey flow] (\newname);
+      \endpgfinterruptpath
+    };
+  }
+
+  \newcommand\sankeyturn[3][]{%newname,name,angle
+    \edef\name{##2}
+    \ifstrempty{##1}{
+      \def\newname{##2}
+      \edef\name{##2-old}
+      \path [late options={name=##2,alias=\name}];
+    }{
+      \def\newname{##1}
+    }
+    \ifnumgreater{##3}{0}{
+      \typeout{turn acw: ##3}
+      \path
+      let
+      % sankey node angle
+      \p1=(##2.north east),
+      \p2=(##2.south east),
+      \p3=($(\p1)!-\sankeyminradius!(\p2)$),
+      \n1={atan2(\x1-\x2,\y1-\y2)-90},
+      % sankey prop
+      \p4=($(\p1)-(\p2)$),
+      \n2={sankeylentoqty(veclen(\x4,\y4))},
+      \p5=(##2.east),
+      \p6=($(\p3)!1!##3:(\p5)$)
+      in
+      \pgfextra{
+        \pgfmathsetmacro{\prop}{\n2}
+        \pgfinterruptpath
+        % \fill[red] (\p3) circle (2pt);
+        % \fill[blue](\p6) circle (2pt);
+        \sankeynode{\prop}{\n1+##3}{\newname}{\p6}
+        \path (\name) to[sankey flow] (\newname);
+        \endpgfinterruptpath
+      };
+    }{
+      \typeout{turn acw: ##3}
+      \path
+      let
+      % sankey node angle
+      \p1=(##2.south east),
+      \p2=(##2.north east),
+      \p3=($(\p1)!-\sankeyminradius!(\p2)$),
+      \n1={atan2(\x1-\x2,\y1-\y2)+90},
+      % sankey prop
+      \p4=($(\p1)-(\p2)$),
+      \n2={sankeylentoqty(veclen(\x4,\y4))},
+      \p5=(##2.east),
+      \p6=($(\p3)!1!##3:(\p5)$)
+      in
+      \pgfextra{
+        \pgfmathsetmacro{\prop}{\n2}
+        \pgfinterruptpath
+        % \fill[red] (\p3) circle (2pt);
+        % \fill[blue](\p6) circle (2pt);
+        \sankeynode{\prop}{\n1+##3}{\newname}{\p6}
+        \path (\name) to[sankey flow] (\newname);
+        \endpgfinterruptpath
+      };
+    }
+  }
+
+  \newcommand\sankeyfork[2]{%name,list of forks
+    \def\name{##1}
+    \def\listofforks{##2}
+    \xdef\sankeytot{0}
+    \path 
+    let
+    % sankey node angle
+    \p1=(\name.north east),
+    \p2=(\name.south east),
+    \n1={atan2(\x1-\x2,\y1-\y2)-90},
+    % sankey prop
+    \p4=($(\p1)-(\p2)$),
+    \n2={sankeylentoqty(veclen(\x4,\y4))}
+    in
+    \pgfextra{
+      \pgfmathsetmacro{\iprop}{\n2}
+    }
+    \foreach \prop/\name[count=\c] in \listofforks {
+      let
+      \p{start \name}=($(\p1)!\sankeytot/\iprop!(\p2)$),
+      \n{nexttot}={\sankeytot+\prop},
+      \p{end \name}=($(\p1)!\n{nexttot}/\iprop!(\p2)$),
+      \p{mid \name}=($(\p{start \name})!.5!(\p{end \name})$)
+      in
+      \pgfextra{
+        \xdef\sankeytot{\n{nexttot}}
+        \pgfinterruptpath
+        \sankeynode{\prop}{\n1}{\name}{\p{mid \name}}
+        \endpgfinterruptpath
+      }
+    }
+    \pgfextra{
+      \pgfmathsetmacro{\diff}{abs(\iprop-\sankeytot)}
+      \pgfmathtruncatemacro{\finish}{\diff<0.01?1:0}
+      \ifnumequal{\finish}{1}{}{
+        \message{*** Warning: bad sankey fork (maybe)...}
+        \message{\iprop-\sankeytot}
+      }
+    };
+  }
+
+  \tikzset{
+    % default values,
+    declare function={
+      sankeyqtytolen(\qty)=\qty/\sankeytotalqty*\sankeytotallen;
+      sankeylentoqty(\len)=\len/\sankeytotallen*\sankeytotalqty;
+    },
+    sankey tot length=100pt,
+    sankey tot quantity=100,
+    sankey min radius=30pt,%
+    sankey arrow length=10pt,%
+    % user values
+    #1}
+}{
+}
