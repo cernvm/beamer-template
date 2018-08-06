@@ -1,6 +1,6 @@
-\makeatletter\let\ifGm@compatii\relax\makeatother 
-\RequirePackage{atbegshi} 
-\documentclass[final, hyperref={pdfpagemode=FullScreen}]{beamer}
+\makeatletter\let\ifGm@compatii\relax\makeatother
+\RequirePackage{atbegshi}
+\documentclass[final, hyperref={pdfpagemode=FullScreen}, aspectratio=169]{beamer}
 
 \title[author@cern.ch]{The Title}
 \author{The Author\\The Affiliation}
@@ -13,8 +13,9 @@
 
 \addtobeamertemplate{frametitle}{}{
 \addvspace{-0.95cm}
-\includegraphics[height=0.85cm]{img/cvmfs-logo}
-%\includegraphics[height=0.85cm]{img/cernvm-logo}
+\hfill
+\includegraphics[height=0.8cm]{img/cvmfs-logo}
+%\includegraphics[height=0.8cm]{img/cernvm-logo}
 }
 
 
@@ -22,16 +23,19 @@
 \selectlanguage{english}
 
 \begin{frame}[label=titlepage]
-	\centering \resizebox{1.5cm}{!}{\input{img/cern-logo}}
-	
-	\titlepage
+  \centering
+  \vspace{0.5cm}
+  \resizebox{1.5cm}{!}{\input{img/cern-logo}}
+  \vspace{-0.5cm}
+
+  \titlepage
 \end{frame}
 
 
 \begin{frame}[label=toc]
-	\frametitle{Contents}
+  \frametitle{Contents}
 
-	\tableofcontents
+  \tableofcontents
 \end{frame}
 
 
@@ -39,75 +43,72 @@
 
 
 \begin{frame}
-	\frametitle{The Frame Title}
-	\framesubtitle{The Frame Sub Title}
-	
-	\Wider[4em]{\begin{center}
-	\Huge A big picture to begin with
-	\end{center}}
+  \frametitle{The Frame Title}
+  \framesubtitle{The Frame Sub Title}
+
+  \Wider[4em]{\begin{center}
+  \Huge A big picture to begin with
+  \end{center}}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Some Blocks}
-	\small
-	
-	\begin{block}{\small Block Title}
-		\begin{itemize}
-			\item Item 1
-			\item Item 2
-		\end{itemize}
-	\end{block}
-	
-	\begin{exampleblock}{\small Example Block Title}
-		\begin{itemize}
-			\item Example item
-		\end{itemize}
-	\end{exampleblock}
-	
-	\begin{alertblock}{\small Alert Block Title}
-		\begin{itemize}
-			\item Alert item
-		\end{itemize}
-	\end{alertblock}
+  \frametitle{Some Blocks}
+  \small
+
+  \begin{block}{\small Block Title}
+    \begin{itemize}
+      \item Item 1
+      \item Item 2
+    \end{itemize}
+  \end{block}
+
+  \begin{exampleblock}{\small Example Block Title}
+    \begin{itemize}
+      \item Example item
+    \end{itemize}
+  \end{exampleblock}
+
+  \begin{alertblock}{\small Alert Block Title}
+    \begin{itemize}
+      \item Alert item
+    \end{itemize}
+  \end{alertblock}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Two Columns}
-	\footnotesize
-	
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			Left Column
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			Right Column
-		\end{column}
-	\end{columns}
+  \frametitle{Two Columns}
+  \footnotesize
+
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Left Column
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      Right Column
+    \end{column}
+  \end{columns}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{A Table}
-	
-	\begin{tabular}{ll}\toprule
-		\bf{Header 1}		& \bf{Header 2}\\\midrule
-		Content 1.1		& Content 2.1\\
-		Content 1.2		& Content 2.2\\
-		\bottomrule
-	\end{tabular}
+  \frametitle{A Table}
+
+  \begin{tabular}{ll}\toprule
+    \bf{Header 1}		& \bf{Header 2}\\\midrule
+    Content 1.1		& Content 2.1\\
+    Content 1.2		& Content 2.2\\
+    \bottomrule
+  \end{tabular}
 \end{frame}
+
 
 \section{New Section}
-\begin{frame}
-	\centering \Huge New Section
-	
-\end{frame}
 
 
 \begin{frame}
-	\frametitle{Summary}
-	
+  \frametitle{Summary}
+
 \end{frame}
 
 
@@ -116,12 +117,7 @@
 \section{Backup Slides}
 
 \begin{frame}
-	\centering \Huge Backup Slides
-	
-\end{frame}
-
-\begin{frame}
-	\frametitle{More Details}
+  \frametitle{More Details}
 \end{frame}
 
 \backupend

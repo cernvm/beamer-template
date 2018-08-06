@@ -32,6 +32,7 @@
 \usepackage{pifont}  % Symbol characters
 \usepackage[weather]{ifsym}
 \usepackage{wasysym}
+\usepackage{varwidth}
 
 \providecommand{\todo}[1]{{\Large TODO: #1}}
 \providecommand{\newterm}[1]{\emph{#1}}
@@ -47,7 +48,7 @@
 % Tables
 %-------------
 \usepackage{tabularx}
-% Split a cell into multiple rows/columns 
+% Split a cell into multiple rows/columns
 \usepackage{multicol}
 \usepackage{multirow}
 % \usepackage{slashbox} % Diagonal cells
@@ -70,10 +71,13 @@
 }
 \makeatother
 \usepackage{gnuplot-lua-tikz} % GNUplot plots
+% \usepackage{pgfplots}
 \usepackage{chronology} % timeline
 \usepackage{fancybox}
 \newcommand{\MYhref}[3][black]{\href{#2}{\color{#1}{#3}}}  % Enforce black hyperlinks
 \definecolor{myyellow}{RGB}{242,226,149}
+\definecolor{darkgreen}{RGB}{0,128,0}
+\definecolor{beamerbackgroundcolor}{RGB}{250,250,250}
 
 
 % Math
@@ -92,21 +96,21 @@
 % Operators
 \providecommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \providecommand{\norm}[1]{\left\lVert #1 \right\rVert}
-\providecommand{\floor}[1]{\left\lfloor #1 \right\rfloor}   
-\providecommand{\ceil}[1]{\left\lceil #1 \right\rceil}   
+\providecommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\providecommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 \providecommand{\svert}{\; \vert \;} %Single vertical bar
 \DeclareMathOperator{\grad}{grad} % Gradient
 \DeclareMathOperator{\rot}{rot} % Rotation
 \DeclareMathOperator{\rg}{rg}
-\DeclareMathOperator{\deF}{def} 
-\DeclareMathOperator{\ran}{ran} 
+\DeclareMathOperator{\deF}{def}
+\DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\dist}{d}
 \DeclareMathOperator{\rx}{rx}
-\DeclareMathOperator{\tx}{tx} 
+\DeclareMathOperator{\tx}{tx}
 \DeclareMathOperator{\req}{req}
 \DeclareMathOperator{\avg}{avg}
 \DeclareMathOperator{\vol}{vol}
-\DeclareMathOperator{\identical}{id} 
+\DeclareMathOperator{\identical}{id}
 \providecommand{\id}{\ensuremath{\textsf{id}}}
 \DeclareMathOperator{\prob}{\mathbf{P}}
 \DeclareMathOperator{\E}{\mathbf{E}}
@@ -120,7 +124,7 @@
 \def\Rightarrowfill@{\arrowfill@\Relbar\Relbar\Rightarrow}
 \newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
 \newcommand{\xLeftarrow}[2][]{\ext@arrow 3095\Leftarrowfill@{#1}{#2}}
-\makeatother 
+\makeatother
 
 
 % Computer Science
@@ -159,16 +163,16 @@
 \widowpenalty = 9000 \displaywidowpenalty = 9000 % No Hurenkinder
 % Roman numbers
 \newcommand{\romannum}[1]{
-	\ifnum#1<1 
-		\ifnum#1=0 
+	\ifnum#1<1
+		\ifnum#1=0
 			o
-		\else 
+		\else
 			-\romannumeral -#1
-		\fi 
-	\else 
+		\fi
+	\else
 		\romannumeral #1
 	\fi}
-\DeclareRobustCommand{\Romannum}[1]{\MakeUppercase{\romannum{#1}}}	
+\DeclareRobustCommand{\Romannum}[1]{\MakeUppercase{\romannum{#1}}}
 
 
 % Sankey diagrams
@@ -365,7 +369,7 @@
     \def\name{##1}
     \def\listofforks{##2}
     \xdef\sankeytot{0}
-    \path 
+    \path
     let
     % sankey node angle
     \p1=(\name.north east),
